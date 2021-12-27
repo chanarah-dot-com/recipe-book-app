@@ -25,7 +25,7 @@ const RecipeOverview = () => {
       />
       <ul>
         <li>
-          Difficulty Level: <b>Easy</b>
+          Difficulty: <b>Easy</b>
         </li>
         <li>
           Preparation Time: <b>5 minutes</b>

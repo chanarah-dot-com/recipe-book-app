@@ -4,7 +4,11 @@ import RecipeIngredients from './RecipeIngredients';
 import RecipeOverview from './RecipeOverview';
 import RecipeSupplies from './RecipeSupplies';
 
-const Recipe = () => {
+interface IRecipe {
+  selectedRecipe: {};
+}
+
+const Recipe = ({ selectedRecipe }: IRecipe) => {
   return (
     <main>
       <RecipeOverview />
