@@ -1,23 +1,30 @@
+import IRecipe from '../interfaces/IRecipe';
 import ChefsTip from './ChefsTip';
 import RecipeDirections from './RecipeDirections';
 import RecipeIngredients from './RecipeIngredients';
 import RecipeOverview from './RecipeOverview';
 import RecipeSupplies from './RecipeSupplies';
 
-interface IRecipe {
-  selectedRecipe: {};
+interface IRecipeProps {
+  selectedRecipe?: IRecipe;
 }
 
-const Recipe = ({ selectedRecipe }: IRecipe) => {
-  return (
+const Recipe = ({ selectedRecipe }: IRecipeProps) => {
+  return selectedRecipe ? (
     <main>
-      <RecipeOverview />
-      <RecipeSupplies />
-      <RecipeIngredients />
-      <ChefsTip />
-      <RecipeDirections />
+      <RecipeOverview
+        name={selectedRecipe.name}
+        difficulty={selectedRecipe.difficulty}
+        preparationTime={selectedRecipe.preparationTime}
+        cookingTime={selectedRecipe.cookingTime}
+        servings={selectedRecipe.servings}
+      />
+      <RecipeSupplies supplies={selectedRecipe.supplies} />
+      <RecipeIngredients ingredients={selectedRecipe.ingredients} />
+      <ChefsTip chefsTip={selectedRecipe.chefsTip} />
+      <RecipeDirections directions={selectedRecipe.directions} />
     </main>
-  );
+  ) : null;
 };
 
 export default Recipe;

@@ -1,38 +1,20 @@
+import Difficulty from '../enums/Difficulty';
+import IChefsTip from './IChefsTip';
+import IRecipeDirections from './IRecipeDirections';
+import IRecipeIngredient from './IRecipeIngredient';
+import IRecipeSupplyItem from './IRecipeSupplyItem';
+
 interface IRecipe {
   id: number;
   name: string;
-  difficulty: string;
+  difficulty: Difficulty;
   preparationTime: number;
   cookingTime: number;
-  servings: 1;
-  supplies: {
-    id: number;
-    name: string;
-    quantity: number;
-  }[];
-  ingredients: {
-    id: number;
-    name: string;
-    quantity: number;
-    measurement: string;
-    description: string;
-  }[];
-  chefsTip?: {
-    name: string;
-    list: {
-      id: number;
-      description: string;
-    }[];
-  };
-  directions: {
-    method: {
-      name: string;
-      steps: {
-        id: number;
-        description: string;
-      }[];
-    }[];
-  }[];
+  servings: number;
+  supplies: IRecipeSupplyItem[];
+  ingredients: IRecipeIngredient[];
+  chefsTip?: IChefsTip;
+  directions: IRecipeDirections;
 }
 
 export default IRecipe;

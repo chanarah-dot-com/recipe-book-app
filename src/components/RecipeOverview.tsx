@@ -1,6 +1,21 @@
+import Difficulty from '../enums/Difficulty';
 import GrilledCheeseSandwich from '../grilled-cheese-sandwich.jpg';
 
-const RecipeOverview = () => {
+interface IRecipeOverviewProps {
+  name: string;
+  difficulty: Difficulty;
+  preparationTime: number;
+  cookingTime: number;
+  servings: number;
+}
+
+const RecipeOverview = ({
+  name,
+  difficulty,
+  preparationTime,
+  cookingTime,
+  servings,
+}: IRecipeOverviewProps) => {
   return (
     <div>
       <div
@@ -17,7 +32,7 @@ const RecipeOverview = () => {
           <a href='/'>Next</a>
         </div>
       </div>
-      <h2>Grilled Cheese Sandwich</h2>
+      <h2>{name}</h2>
       <img
         style={{ aspectRatio: '1', width: '10rem' }}
         src={GrilledCheeseSandwich}
@@ -25,19 +40,20 @@ const RecipeOverview = () => {
       />
       <ul>
         <li>
-          Difficulty: <b>Easy</b>
+          Difficulty: <b>{difficulty}</b>
         </li>
         <li>
-          Preparation Time: <b>5 minutes</b>
+          Preparation Time: <b>{preparationTime} minutes</b>
         </li>
         <li>
-          Cooking Time: <b>5 minutes</b>
+          Cooking Time: <b>{cookingTime} minutes</b>
         </li>
         <li>
-          Total Time: <b>10 minutes</b>
+          Total Time:{' '}
+          <b>{(preparationTime as number) + (cookingTime as number)} minutes</b>
         </li>
         <li>
-          Servings: <b>1</b>
+          Servings: <b>{servings}</b>
         </li>
       </ul>
     </div>

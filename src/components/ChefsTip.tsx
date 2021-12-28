@@ -1,15 +1,22 @@
-const ChefsTip = () => {
-  return (
-    <div>
-      <h4>Chef's Tip: Great Combos</h4>
+import IChefsTip from '../interfaces/IChefsTip';
+
+interface IChefsTipProps {
+  chefsTip?: IChefsTip;
+}
+
+const ChefsTip = ({ chefsTip }: IChefsTipProps) => {
+  return chefsTip ? (
+    <aside>
+      <strong>{`Chef's Tip: ${chefsTip.name}`}</strong>
       <ol>
-        <li>Pepper jack and sourdough brushed with chili oil</li>
-        <li>American and white bread brushed with butter</li>
-        <li>Swiss and rye brushed with mayo</li>
-        <li>Cheddar and brioche brushed with butter</li>
+        {chefsTip.list.map((item) => (
+          <>
+            <li key={item.id}>{item.description}</li>
+          </>
+        ))}
       </ol>
-    </div>
-  );
+    </aside>
+  ) : null;
 };
 
 export default ChefsTip;

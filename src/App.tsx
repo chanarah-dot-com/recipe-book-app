@@ -1,21 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Recipe from './components/Recipe';
-import IRecipes from './interfaces/IRecipes';
+import data from './data/data';
+import IRecipe from './interfaces/IRecipe';
 
 const App = () => {
-  const [recipes, setRecipes] = useState<IRecipes>();
+  const [recipes, setRecipes] = useState<IRecipe[]>();
   const [selectedRecipe, setSelectedRecipe] = useState<number>(1);
 
-  return (
+  useEffect(() => {
+    setRecipes(data.recipes);
+  }, []);
+
+  return selectedRecipe ? (
     <div className='App'>
       <Header />
-      <Recipe selectedRecipe={selectedRecipe} />
+      <Recipe
+        selectedRecipe={recipes?.find((recipe) => recipe.id === selectedRecipe)}
+      />
       <Footer />
     </div>
-  );
+  ) : null;
 };
 
 export default App;
