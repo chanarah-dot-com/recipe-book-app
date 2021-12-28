@@ -7,6 +7,7 @@ interface IRecipeOverviewProps {
   preparationTime: number;
   cookingTime: number;
   servings: number;
+  image?: string;
 }
 
 const RecipeOverview = ({
@@ -15,6 +16,7 @@ const RecipeOverview = ({
   preparationTime,
   cookingTime,
   servings,
+  image,
 }: IRecipeOverviewProps) => {
   return (
     <div>
@@ -33,11 +35,7 @@ const RecipeOverview = ({
         </div>
       </div>
       <h2>{name}</h2>
-      <img
-        style={{ aspectRatio: '1', width: '10rem' }}
-        src={GrilledCheeseSandwich}
-        alt=''
-      />
+      <img style={{ aspectRatio: '1', width: '10rem' }} src={image} alt='' />
       <ul>
         <li>
           Difficulty: <b>{difficulty}</b>

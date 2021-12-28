@@ -15,7 +15,7 @@ const RecipeIngredients = ({ ingredients }: IRecipeIngredientsProps) => {
               <b>
                 {`${ingredient.quantity} ${ingredient.measurement} ${ingredient.name}`}{' '}
               </b>
-              {`${ingredient.description}`}
+              {ingredient.description && `${ingredient.description}`}
             </li>
           </>
         ))}

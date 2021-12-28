@@ -18,6 +18,7 @@ const Recipe = ({ selectedRecipe }: IRecipeProps) => {
         preparationTime={selectedRecipe.preparationTime}
         cookingTime={selectedRecipe.cookingTime}
         servings={selectedRecipe.servings}
+        image={selectedRecipe.image}
       />
       <RecipeSupplies supplies={selectedRecipe.supplies} />
       <RecipeIngredients ingredients={selectedRecipe.ingredients} />

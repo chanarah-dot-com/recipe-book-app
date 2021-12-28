@@ -8,7 +8,7 @@ import IRecipe from './interfaces/IRecipe';
 
 const App = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>();
-  const [selectedRecipe, setSelectedRecipe] = useState<number>(1);
+  const [selectedRecipe, setSelectedRecipe] = useState<number>(2);
 
   useEffect(() => {
     setRecipes(data.recipes);

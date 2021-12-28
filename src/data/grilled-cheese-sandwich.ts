@@ -1,10 +1,12 @@
 import Difficulty from '../enums/Difficulty';
 import IRecipe from '../interfaces/IRecipe';
+import GrilledCheeseSandwich from '../grilled-cheese-sandwich.jpg';
 
 const grilledCheeseSandwich: IRecipe = {
   id: 1,
   name: 'Grilled Cheese Sandwich',
   difficulty: Difficulty.EASY,
+  image: GrilledCheeseSandwich,
   preparationTime: 5,
   cookingTime: 5,
   servings: 1,

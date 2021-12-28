@@ -15,6 +15,7 @@ interface IRecipe {
   ingredients: IRecipeIngredient[];
   chefsTip?: IChefsTip;
   directions: IRecipeDirections;
+  image?: string;
 }
 
 export default IRecipe;
