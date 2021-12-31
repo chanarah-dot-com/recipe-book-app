@@ -1,11 +1,26 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface IHeaderProps {
   nextRecipe: () => void;
   prevRecipe: () => void;
+  filterRecipes: (keyword: string) => void;
 }
 
-const Header = ({ nextRecipe, prevRecipe }: IHeaderProps) => {
+const Header = ({ nextRecipe, prevRecipe, filterRecipes }: IHeaderProps) => {
+  const [userInput, setUserInput] = useState("");
+
+  const handleClickReset = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    setUserInput("");
+  };
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value);
+    filterRecipes(userInput);
+  };
+
   return (
     <header>
       <div id="top"></div>
@@ -13,12 +28,17 @@ const Header = ({ nextRecipe, prevRecipe }: IHeaderProps) => {
       <div>
         <label htmlFor="search" aria-label="search" />
         <input
+          // onChange={searchForRecipe}
+          onChange={handleChangeInput}
           type="text"
           name="search"
           id="search"
+          value={userInput}
           placeholder="Find a recipe..."
         />
-        <button>Search</button>
+        <button onClick={handleClickReset} type="reset">
+          Reset
+        </button>
       </div>
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
         <Link onClick={prevRecipe} to="/">

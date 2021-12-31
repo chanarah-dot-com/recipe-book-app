@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -8,7 +8,7 @@ import IRecipe from "./interfaces/IRecipe";
 
 const App = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>();
-  const [selectedRecipe, setSelectedRecipe] = useState<number>(1);
+  const [selectedRecipe, setSelectedRecipe] = useState<number>(0);
 
   useEffect(() => {
     setRecipes(data.recipes);
@@ -16,27 +16,47 @@ const App = () => {
 
   const nextRecipe = () => {
     if (recipes)
-      selectedRecipe === recipes.length
-        ? setSelectedRecipe(1)
+      selectedRecipe === recipes.length - 1
+        ? setSelectedRecipe(0)
         : setSelectedRecipe(selectedRecipe + 1);
   };
 
   const prevRecipe = () => {
     if (recipes)
-      selectedRecipe === 1
-        ? setSelectedRecipe(recipes.length)
+      selectedRecipe === 0
+        ? setSelectedRecipe(recipes.length - 1)
         : setSelectedRecipe(selectedRecipe - 1);
   };
 
-  return selectedRecipe ? (
+  const filterRecipes = (keyword: string) => {
+    const filteredRecipes: IRecipe[] = [];
+
+    if (keyword !== "") {
+      recipes?.filter((recipe) => {
+        recipe.name.toLowerCase().startsWith(keyword.toLowerCase());
+        filteredRecipes.push(recipe);
+        return filteredRecipes;
+      });
+
+      setRecipes(filteredRecipes);
+    }
+
+    if (keyword === "") {
+      setRecipes(data.recipes);
+    }
+  };
+
+  return (
     <div className="App">
-      <Header nextRecipe={nextRecipe} prevRecipe={prevRecipe} />
-      <Recipe
-        selectedRecipe={recipes?.find((recipe) => recipe.id === selectedRecipe)}
+      <Header
+        nextRecipe={nextRecipe}
+        prevRecipe={prevRecipe}
+        filterRecipes={filterRecipes}
       />
+      <Recipe selectedRecipe={recipes ? recipes[selectedRecipe] : undefined} />
       <Footer />
     </div>
-  ) : null;
+  );
 };
 
 export default App;

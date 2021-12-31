@@ -2,9 +2,9 @@ import Difficulty from "../enums/Difficulty";
 import IRecipe from "../interfaces/IRecipe";
 import GrilledCheeseSandwich from "../grilled-cheese-sandwich.jpg";
 
-const grilledCheeseSandwich: IRecipe = {
-  id: 1,
-  name: "Grilled Cheese Sandwich",
+const grilledCheeseSandwich2: IRecipe = {
+  id: 3,
+  name: "Grilled Cheese Sandwich2",
   difficulty: Difficulty.EASY,
   image: GrilledCheeseSandwich,
   preparationTime: 5,
@@ -107,4 +107,4 @@ const grilledCheeseSandwich: IRecipe = {
   },
 };
 
-export default grilledCheeseSandwich;
+export default grilledCheeseSandwich2;
