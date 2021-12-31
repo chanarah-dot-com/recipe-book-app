@@ -1,21 +1,32 @@
-const Header = () => {
+import { Link } from "react-router-dom";
+
+interface IHeaderProps {
+  nextRecipe: () => void;
+  prevRecipe: () => void;
+}
+
+const Header = ({ nextRecipe, prevRecipe }: IHeaderProps) => {
   return (
     <header>
-      <div id='top'></div>
+      <div id="top"></div>
       <h1>She Chefs Recipes</h1>
       <div>
-        <label htmlFor='search' aria-label='search' />
+        <label htmlFor="search" aria-label="search" />
         <input
-          type='text'
-          name='search'
-          id='search'
-          placeholder='Find a recipe...'
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Find a recipe..."
         />
         <button>Search</button>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <a href='/'>Prev</a>
-        <a href='/'>Next</a>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Link onClick={prevRecipe} to="/">
+          Prev
+        </Link>
+        <Link onClick={nextRecipe} to="/">
+          Next
+        </Link>
       </div>
     </header>
   );
