@@ -18,7 +18,7 @@ const Header = ({ nextRecipe, prevRecipe, filterRecipes }: IHeaderProps) => {
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(event.target.value);
-    filterRecipes(userInput);
+    filterRecipes(event.target.value);
   };
 
   return (
@@ -28,7 +28,6 @@ const Header = ({ nextRecipe, prevRecipe, filterRecipes }: IHeaderProps) => {
       <div>
         <label htmlFor="search" aria-label="search" />
         <input
-          // onChange={searchForRecipe}
           onChange={handleChangeInput}
           type="text"
           name="search"

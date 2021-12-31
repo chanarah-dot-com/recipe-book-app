@@ -1,4 +1,4 @@
-import IRecipeSupplyItem from '../interfaces/IRecipeSupplyItem';
+import IRecipeSupplyItem from "../interfaces/IRecipeSupplyItem";
 
 interface IRecipeSuppliesProps {
   supplies: IRecipeSupplyItem[];

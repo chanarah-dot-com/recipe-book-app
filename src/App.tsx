@@ -9,6 +9,9 @@ import IRecipe from "./interfaces/IRecipe";
 const App = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>();
   const [selectedRecipe, setSelectedRecipe] = useState<number>(0);
+  const [filteredRecipes, setFilteredRecipes] = useState<IRecipe[]>(
+    data.recipes
+  );
 
   useEffect(() => {
     setRecipes(data.recipes);
@@ -29,20 +32,12 @@ const App = () => {
   };
 
   const filterRecipes = (keyword: string) => {
-    const filteredRecipes: IRecipe[] = [];
+    const results = recipes?.filter((recipe) => {
+      return recipe.name.toLowerCase().startsWith(keyword.toLowerCase());
+    });
 
-    if (keyword !== "") {
-      recipes?.filter((recipe) => {
-        recipe.name.toLowerCase().startsWith(keyword.toLowerCase());
-        filteredRecipes.push(recipe);
-        return filteredRecipes;
-      });
-
-      setRecipes(filteredRecipes);
-    }
-
-    if (keyword === "") {
-      setRecipes(data.recipes);
+    if (results) {
+      setFilteredRecipes(results);
     }
   };
 
@@ -53,7 +48,11 @@ const App = () => {
         prevRecipe={prevRecipe}
         filterRecipes={filterRecipes}
       />
-      <Recipe selectedRecipe={recipes ? recipes[selectedRecipe] : undefined} />
+      <Recipe
+        selectedRecipe={
+          filteredRecipes ? filteredRecipes[selectedRecipe] : undefined
+        }
+      />
       <Footer />
     </div>
   );

@@ -1,9 +1,9 @@
-import IRecipe from '../interfaces/IRecipe';
-import ChefsTip from './ChefsTip';
-import RecipeDirections from './RecipeDirections';
-import RecipeIngredients from './RecipeIngredients';
-import RecipeOverview from './RecipeOverview';
-import RecipeSupplies from './RecipeSupplies';
+import IRecipe from "../interfaces/IRecipe";
+import ChefsTip from "./ChefsTip";
+import RecipeDirections from "./RecipeDirections";
+import RecipeIngredients from "./RecipeIngredients";
+import RecipeOverview from "./RecipeOverview";
+import RecipeSupplies from "./RecipeSupplies";
 
 interface IRecipeProps {
   selectedRecipe?: IRecipe;
