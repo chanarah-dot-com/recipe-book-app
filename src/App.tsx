@@ -7,27 +7,23 @@ import data from "./data/data";
 import IRecipe from "./interfaces/IRecipe";
 
 const App = () => {
-  const [recipes, setRecipes] = useState<IRecipe[]>();
+  const [recipes, setRecipes] = useState<IRecipe[]>(data.recipes);
   const [selectedRecipe, setSelectedRecipe] = useState<number>(0);
   const [filteredRecipes, setFilteredRecipes] = useState<IRecipe[]>(
     data.recipes
   );
 
-  useEffect(() => {
-    setRecipes(data.recipes);
-  }, []);
-
   const nextRecipe = () => {
-    if (recipes)
-      selectedRecipe === recipes.length - 1
+    if (filteredRecipes)
+      selectedRecipe === filteredRecipes.length - 1
         ? setSelectedRecipe(0)
         : setSelectedRecipe(selectedRecipe + 1);
   };
 
   const prevRecipe = () => {
-    if (recipes)
+    if (filteredRecipes)
       selectedRecipe === 0
-        ? setSelectedRecipe(recipes.length - 1)
+        ? setSelectedRecipe(filteredRecipes.length - 1)
         : setSelectedRecipe(selectedRecipe - 1);
   };
 
@@ -37,6 +33,7 @@ const App = () => {
     });
 
     if (results) {
+      setSelectedRecipe(0);
       setFilteredRecipes(results);
     }
   };
@@ -48,11 +45,7 @@ const App = () => {
         prevRecipe={prevRecipe}
         filterRecipes={filterRecipes}
       />
-      <Recipe
-        selectedRecipe={
-          filteredRecipes ? filteredRecipes[selectedRecipe] : undefined
-        }
-      />
+      <Recipe selectedRecipe={filteredRecipes[selectedRecipe]} />
       <Footer />
     </div>
   );
