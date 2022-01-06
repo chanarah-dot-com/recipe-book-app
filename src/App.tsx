@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import Recipe from "./components/Recipe";
 import data from "./data/data";
 import IRecipe from "./interfaces/IRecipe";
@@ -29,7 +29,10 @@ const App = () => {
 
   const filterRecipes = (keyword: string) => {
     const results = recipes?.filter((recipe) => {
-      return recipe.name.toLowerCase().startsWith(keyword.toLowerCase());
+      return recipe.name
+        .trim()
+        .toLowerCase()
+        .startsWith(keyword.trim().toLowerCase());
     });
 
     if (results) {
