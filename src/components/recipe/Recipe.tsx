@@ -1,9 +1,10 @@
-import IRecipe from "../interfaces/IRecipe";
-import ChefsTip from "./ChefsTip";
-import RecipeDirections from "./RecipeDirections";
-import RecipeIngredients from "./RecipeIngredients";
-import RecipeOverview from "./RecipeOverview";
-import RecipeSupplies from "./RecipeSupplies";
+import IRecipe from '../../interfaces/IRecipe';
+import ChefsTip from '../ChefsTip';
+import RecipeDirections from '../RecipeDirections';
+import RecipeIngredients from '../RecipeIngredients';
+import RecipeOverview from '../recipe-overview/RecipeOverview';
+import RecipeSupplies from '../RecipeSupplies';
+import './Recipe.css';
 
 interface IRecipeProps {
   selectedRecipe?: IRecipe;
@@ -11,7 +12,7 @@ interface IRecipeProps {
 
 const Recipe = ({ selectedRecipe }: IRecipeProps) => {
   return selectedRecipe ? (
-    <main>
+    <main className='recipe--main'>
       <RecipeOverview
         name={selectedRecipe.name}
         difficulty={selectedRecipe.difficulty}

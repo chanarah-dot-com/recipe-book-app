@@ -1,0 +1,33 @@
+.recipe-overview--container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-overview--img {
+  aspect-ratio: 1;
+  width: 10rem;
+  border-radius: 2rem;
+}
+
+.recipe-overview--ul {
+  list-style: none;
+  padding: 1rem 0 0 0;
+  margin: 0;
+  width: 100%;
+}
+
+.recipe-overview--li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.recipe-overview--li-key {
+  width: 50%;
+  text-align: right;
+}
+
+.recipe-overview--li-value {
+  width: 50%;
+}

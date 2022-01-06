@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Recipe from "./components/Recipe";
+import Recipe from "./components/recipe/Recipe";
 
 ReactDOM.render(
   <React.StrictMode>

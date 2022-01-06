@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
-import Recipe from "./components/Recipe";
+import Recipe from "./components/recipe/Recipe";
 import data from "./data/data";
 import IRecipe from "./interfaces/IRecipe";
 
