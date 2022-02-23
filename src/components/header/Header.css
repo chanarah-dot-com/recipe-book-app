@@ -3,14 +3,18 @@
   justify-content: center;
   padding-bottom: 1rem;
   background-color: var(--primary-color);
+  width: 100%;
 }
 
-.header--header-container {
+.header--div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: 66%;
+}
+
+.header--h1 {
+  color: var(--secondary-color);
 }
 
 .header--search-container {
@@ -24,31 +28,14 @@
   width: 100%;
   border: none;
   padding: 0.5rem 1rem;
-  background-color: black;
+  background-color: var(--secondary-color);
   color: white;
   cursor: pointer;
-  transition: all ease-in-out 0.5s;
   border-radius: 0.5rem;
-}
-
-.header--search-container button.grey {
-  background-color: grey;
-  width: 4rem;
-  border-radius: 0.25rem;
 }
 
 .header--search-container input {
-  border: none;
-  border-bottom: 2px solid black;
   padding: 0.25rem;
-  transition: all ease-in-out 0.5s;
-  outline: 0px solid white;
-}
-
-.header--search-container input:focus {
-  outline: 2px solid black;
-  border-radius: 0.5rem;
-  padding: 0.25rem 0.5rem;
 }
 
 .header--link-container {

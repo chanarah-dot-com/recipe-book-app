@@ -10,7 +10,6 @@ interface IHeaderProps {
 
 const Header = ({ nextRecipe, prevRecipe, filterRecipes }: IHeaderProps) => {
   const [userInput, setUserInput] = useState('');
-  const [greyButton, setGreyButton] = useState(true);
 
   const handleClickReset = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -24,38 +23,22 @@ const Header = ({ nextRecipe, prevRecipe, filterRecipes }: IHeaderProps) => {
     filterRecipes(event.target.value);
   };
 
-  const handleFocusInput = () => {
-    setGreyButton(false);
-  };
-
-  const handleBlurInput = () => {
-    setGreyButton(true);
-  };
-
   return (
     <header className='header--header'>
-      <div className="header--header-container">
+      <div className='header--div'>
         <div id='top'></div>
-        <div>
-          <b>She Chefs Recipes</b>
-        </div>
+        <h1 className='header--h1'>She Chefs Recipes</h1>
         <div className='header--search-container'>
           <label htmlFor='search' aria-label='search' />
           <input
             onChange={handleChangeInput}
-            onFocus={handleFocusInput}
-            onBlur={handleBlurInput}
             type='text'
             name='search'
             id='search'
             value={userInput}
             placeholder='Find a recipe...'
           />
-          <button
-            className={greyButton ? 'grey' : ''}
-            onClick={handleClickReset}
-            type='reset'
-          >
+          <button onClick={handleClickReset} type='reset'>
             Reset
           </button>
         </div>

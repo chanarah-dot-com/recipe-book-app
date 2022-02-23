@@ -1,0 +1,9 @@
+.ingredients--div {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 3rem;
+  padding: 1rem;
+  width: 50%;
+  background-color: white;
+  filter: drop-shadow(16px 16px var(--secondary-color));
+}

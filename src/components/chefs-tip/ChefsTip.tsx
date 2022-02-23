@@ -1,4 +1,5 @@
-import IChefsTip from '../interfaces/IChefsTip';
+import IChefsTip from '../../interfaces/IChefsTip';
+import './ChefsTip.css';
 
 interface IChefsTipProps {
   chefsTip?: IChefsTip;
@@ -6,7 +7,7 @@ interface IChefsTipProps {
 
 const ChefsTip = ({ chefsTip }: IChefsTipProps) => {
   return chefsTip ? (
-    <aside>
+    <aside className='chefs-tip--aside'>
       <strong>{`Chef's Tip: ${chefsTip.name}`}</strong>
       <ol>
         {chefsTip.list.map((item) => (

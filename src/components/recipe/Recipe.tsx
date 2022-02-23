@@ -1,9 +1,9 @@
 import IRecipe from '../../interfaces/IRecipe';
-import ChefsTip from '../ChefsTip';
+import ChefsTip from '../chefs-tip/ChefsTip';
 import RecipeDirections from '../RecipeDirections';
-import RecipeIngredients from '../RecipeIngredients';
+import RecipeIngredients from '../recipe-ingredients/RecipeIngredients';
 import RecipeOverview from '../recipe-overview/RecipeOverview';
-import RecipeSupplies from '../RecipeSupplies';
+import RecipeSupplies from '../recipe-supplies/RecipeSupplies';
 import './Recipe.css';
 
 interface IRecipeProps {

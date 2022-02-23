@@ -1,4 +1,5 @@
-import IRecipeIngredient from '../interfaces/IRecipeIngredient';
+import IRecipeIngredient from '../../interfaces/IRecipeIngredient';
+import './RecipeIngredients.css';
 
 interface IRecipeIngredientsProps {
   ingredients: IRecipeIngredient[];
@@ -6,7 +7,7 @@ interface IRecipeIngredientsProps {
 
 const RecipeIngredients = ({ ingredients }: IRecipeIngredientsProps) => {
   return (
-    <div>
+    <div className='ingredients--div'>
       <h3>Ingredients</h3>
       <ul>
         {ingredients.map((ingredient) => (
