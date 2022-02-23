@@ -1,8 +1,8 @@
 .header--header {
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid lightgrey;
   padding-bottom: 1rem;
+  background-color: var(--primary-color);
 }
 
 .header--header-container {
